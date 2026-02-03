@@ -3,7 +3,7 @@ ENTRY(boot)
 
 SECTIONS {
     /* RISC-V Kernel Entry Point Address */
-    . = 0x80200000
+    . = 0x80200000;
 
     /* Where all the code lies */
     .text :{
@@ -23,13 +23,13 @@ SECTIONS {
 
     /* Read/write data with an init val of 0 */
     .bss : ALIGN(4) {
-        _bss = .;
+        __bss = .;
         *(.bss .bss.* .sbss .sbss.*)
         __bss_end = .;
     }
 
     . = ALIGN(4);
-    . += 128 * 1024 /* 128 KB */
+    . += 128 * 1024; /* 128 KB */
     __stack_top = .;
     
 }
